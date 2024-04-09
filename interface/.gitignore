@@ -1,0 +1,29 @@
+# Dependencies
+/node_modules
+
+# Production build
+/build
+
+# Log files
+npm-debug.log*
+
+# Environment variables
+.env
+
+# Compiled output
+/dist
+
+# Ignore any local npm configuration files
+.npmrc
+
+# Ignore VS Code settings
+.vscode
+
+# Ignore WebStorm settings
+.idea
+
+# Ignore any local eslint configuration
+.eslintcache
+
+# Ignore any local babel configuration
+.babelrc

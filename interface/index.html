@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="node_modules/web3/dist/web3.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="index.js"></script>
+    <div class="container">
+      <h2 class="choose-user__title">
+        Выберите пользователя из кошелька MetaMask
+      </h2>
+      <select name="choose-user__select" id="choose-user__select">
+        <option value="none">Выбрать</option>
+      </select>
+      <h3>Личный кабинет</h3>
+      <div class="cabinet"></div>
+      <div class="tokens-block">
+        <h5 id="token-balance">Баланс токенов :</h5>
+        <input
+          type="number"
+          id="value_tokens"
+          placeholder="Количество токенов"
+        />
+        <button class="btn btn-primary" id="buyToken__btn">
+          Купить токены
+        </button>
+        <button class="btn btn-primary" id="sellToken__btn">
+          Продать токены
+        </button>
+      </div>
+      <div class="refCode__menu">
+        <h5>Активировать реферальный код</h5>
+        <input
+          type="text"
+          id="refCode_activate"
+          placeholder="Реферальный код"
+        />
+        <button class="btn btn-primary" id="activateRefCode__btn">
+          Активировать реферальный код
+        </button>
+        <h5>Посмотреть реферальный код другого человека</h5>
+        <input
+          type="text"
+          id="address_checkRefCode"
+          placeholder="Адрес другого человека"
+        />
+        <div id="refCodeAddress"></div>
+        <button class="btn btn-primary" id="checkRefCode__btn">
+          Посмотреть реферальный код
+        </button>
+        <button class="btn btn-primary" id="createRefCode__btn">
+          Создать реферальный код
+        </button>
+      </div>
+      <button class="btn btn-danger" id="showNfts__btn">
+        Посмотреть все нфт
+      </button>
+      <div class="nfts-block">
+        <h3>Все нфт</h3>
+        <div class="nfts-list"></div>
+      </div>
+      <div class="createNft-block">
+        <h3>Создать одиночное нфт</h3>
+        <input type="text" id="name_createNft" placeholder="Имя нфт" />
+        <input type="text" id="descr_createNft" placeholder="Описание нфт" />
+        <input
+          type="text"
+          id="path_createNft"
+          placeholder="Название картинки (Пример cat_nft1.png)"
+        />
+        <input
+          type="number"
+          id="value_createNft"
+          placeholder="Количество нфт"
+        />
+        <input type="number" id="price_createNft" placeholder="Цена нфт " />
+        <button class="btn btn-primary" id="createNft__btn">
+          Создать одиночное нфт
+        </button>
+      </div>
+      <div class="changeNftPrice-block">
+        <h6>Изменить стоимость нфт</h6>
+        <input type="number" id="id_changeNftPrice" placeholder="Айди нфт" />
+        <input
+          type="number"
+          id="price_changeNftPrice"
+          placeholder="Новая стоимость"
+        />
+        <button class="btn btn-primary" id="changeNftPrice__btn">
+          Изменить стоимость нфт
+        </button>
+      </div>
+      <button class="btn btn-danger" id="showCollections__btn">
+        Посмотреть все колекции
+      </button>
+      <div class="collections-block">
+        <h3>Все коллекции</h3>
+        <div class="collections-list"></div>
+      </div>
+      <div class="create-collection">
+        <h3>Создать нфт коллекцию</h3>
+        <input type="text" id="name_collection" placeholder="Имя коллекции" />
+        <input
+          type="text"
+          id="descr_collection"
+          placeholder="Описание коллекции"
+        />
+        <input
+          type="text"
+          id="nftIds_createCollection"
+          placeholder="Айди нфт через запятую"
+        />
+        <input
+          type="text"
+          id="value_createCollection"
+          placeholder="Количество нфт через запятую к каждому айди нфт выше"
+        />
+        <button class="btn btn-primary" id="createCollection__btn">
+          Создать коллекцию
+        </button>
+      </div>
+      <div class="create-collection">
+        <h3>Отдать нфт другому</h3>
+        <input type="number" id="idNft_giveNft" placeholder="Айди нфт" />
+        <input type="number" id="value_giveNft" placeholder="Количество нфт" />
+        <input
+          type="text"
+          id="to_giveNft"
+          placeholder="Адрес того кому хотите отдать"
+        />
+        <input
+          type="text"
+          id="isCollection_giveNft"
+          placeholder="Напишите true если хотите отдать нфт из коллекции если хотите одиночное то false"
+        />
+        <input
+          type="text"
+          id="idCollection_giveNft"
+          placeholder="Айди коллекции из которой хотите отдать, если одиночное то пишите 0"
+        />
+        <button class="btn btn-primary" id="giveNft__btn">Отдать нфт</button>
+      </div>
+      <button class="btn btn-danger" id="showLots__btn">
+        Посмотреть торговую площадку
+      </button>
+      <div class="lots-block">
+        <h3>Все лоты</h3>
+        <div class="lots-list"></div>
+      </div>
+      <div class="create-lot">
+        <h3>Создать лот на торговой площалке</h3>
+        <input type="number" id="idNft_createLot" placeholder="Айди нфт" />
+        <input
+          type="number"
+          id="value_createLot"
+          placeholder="Количество нфт"
+        />
+        <input type="number" id="price_createLot" placeholder="Цена за всё" />
+        <input
+          type="text"
+          id="isCollection_createLot"
+          placeholder="Напишите true если хотите продать нфт из коллекции если хотите одиночное то false"
+        />
+        <input
+          type="number"
+          id="idCollection_createLot"
+          placeholder="Айди коллекции из которой хотите продать, если одиночное то пишите 0"
+        />
+        <button class="btn btn-primary" id="createLot__btn">
+          Выставить нфт на торговую площадку
+        </button>
+      </div>
+      <div class="delete-lot">
+        <h3>Удалить лот с торговой площадки</h3>
+        <input type="number" id="idNft_deleteLot" placeholder="Айди лота" />
+
+        <button class="btn btn-primary" id="deleteLot__btn">
+          Удалить лот с торговой площадки
+        </button>
+      </div>
+      <div class="buy-lot">
+        <h3>Купить лот на торговой площадке</h3>
+        <input type="number" id="idNft_buyLot" placeholder="Айди лота" />
+        <button class="btn btn-primary" id="buyLot__btn">Купить лот</button>
+      </div>
+      <button class="btn btn-danger" id="showAuctions__btn">
+        Посмотреть все аукционы
+      </button>
+      <div class="auctions-block">
+        <h3>Все аукционы</h3>
+        <div class="auctions-list"></div>
+      </div>
+      <div class="create-auction">
+        <h3>Создать аукцион</h3>
+        <input
+          type="number"
+          id="idCollection_createAuction"
+          placeholder="Айди коллекции"
+        />
+        <input
+          type="number"
+          id="start_createAuction"
+          placeholder="Время старта после создания аукциона"
+        />
+        <input
+          type="number"
+          id="stop_createAuction"
+          placeholder="Время завершения после создания аукциона"
+        />
+        <input
+          type="number"
+          id="minBet_createAuction"
+          placeholder="Минимальная ставка"
+        />
+        <input
+          type="number"
+          id="maxBet_createAuction"
+          placeholder="Максимальная ставка"
+        />
+        <button class="btn btn-primary" id="createAuction__btn">
+          Создать аукцион
+        </button>
+      </div>
+      <div class="putBet">
+        <h3>Поставить ставку</h3>
+        <input
+          type="number"
+          id="idAuction_putBet"
+          placeholder="Айди аукциона"
+        />
+        <input type="number" id="amount_putBet" placeholder="Сумма ставки" />
+        <button class="btn btn-primary" id="putBet__btn">Купить лот</button>
+      </div>
+      <div class="delete-auction">
+        <h3>Удалить аукцион</h3>
+        <input
+          type="number"
+          id="idAuction_deleteAuction"
+          placeholder="Айди аукциона"
+        />
+        <button class="btn btn-primary" id="deleteAuction__btn">
+          Удалить аукцион
+        </button>
+      </div>
+
+      <footer class="footer">
+        <button class="btn btn-warning">
+          Редников Лев Дмитриевич | Всероссийское чемпионатное движение по
+          профессиональному мастерству Профессионалы | студент гр. П222
+        </button>
+      </footer>
+    </div>
+  </body>
+</html>

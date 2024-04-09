@@ -1,0 +1,1362 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "payable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "Approval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
+    ],
+    "name": "ApprovalForAll",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "Transfer",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "ids",
+        "type": "uint256[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "values",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "TransferBatch",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "TransferSingle",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "value",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "URI",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "refCode",
+        "type": "string"
+      }
+    ],
+    "name": "activateRefCode",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      }
+    ],
+    "name": "allowance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "approve",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "auctions",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "collectionId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "created",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "start",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "stop",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minBet",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxBet",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "exists",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "accounts",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "ids",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "balanceOfBatch",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "lotId",
+        "type": "uint256"
+      }
+    ],
+    "name": "buyLot",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "buyToken",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "idNft",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      }
+    ],
+    "name": "changeNftPrice",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "collections",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "descr",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "inAuction",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "collectionId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "start",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "stop",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minBet",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxBet",
+        "type": "uint256"
+      }
+    ],
+    "name": "createAuction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "nftIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "nftValues",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "descr",
+        "type": "string"
+      }
+    ],
+    "name": "createCollection",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "nftId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "isCollection",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "collectionId",
+        "type": "uint256"
+      }
+    ],
+    "name": "createLot",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "descr",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "path",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      }
+    ],
+    "name": "createNft",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "refCode",
+        "type": "string"
+      }
+    ],
+    "name": "createRefCode",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "decimals",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "subtractedValue",
+        "type": "uint256"
+      }
+    ],
+    "name": "decreaseAllowance",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "auctionId",
+        "type": "uint256"
+      }
+    ],
+    "name": "deleteAuction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "lotId",
+        "type": "uint256"
+      }
+    ],
+    "name": "deleteLot",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "nftId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "nftValue",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isCollection",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "collectionId",
+        "type": "uint256"
+      }
+    ],
+    "name": "giveNft",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "addedValue",
+        "type": "uint256"
+      }
+    ],
+    "name": "increaseAllowance",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      }
+    ],
+    "name": "isApprovedForAll",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "lots",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "nftId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "seller",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "exists",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "nfts",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "descr",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "path",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "auctionId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "putBet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "reloadAuction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "returnAuctions",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "collectionId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "created",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "start",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stop",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "minBet",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maxBet",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "bets",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "address[]",
+            "name": "members",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bool",
+            "name": "exists",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct Super.Auction[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "returnCollections",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "descr",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "nftIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "nftValues",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "bool",
+            "name": "inAuction",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct Super.Collection[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "returnLots",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "value",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "seller",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "exists",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct Super.Lot[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "returnNfts",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "descr",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "path",
+            "type": "string"
+          },
+          {
+            "internalType": "address[]",
+            "name": "owners",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "values",
+            "type": "uint256[]"
+          }
+        ],
+        "internalType": "struct Super.Nft[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "userAddress",
+        "type": "address"
+      }
+    ],
+    "name": "returnUser",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "userAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "refCode",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "refCodePercent",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "refCodeActivated",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct Super.User",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "ids",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amounts",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "safeBatchTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "safeTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "sellToken",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
+    ],
+    "name": "setApprovalForAll",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "showUserRefCode",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "refCode",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "tokenPrice",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "transfer",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "transferFrom",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "uri",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

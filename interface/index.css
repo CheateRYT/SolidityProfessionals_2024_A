@@ -1,0 +1,35 @@
+.nfts-block p {
+  margin: 0;
+  padding: 0;
+}
+.collections-block p {
+  margin: 0;
+  padding: 0;
+}
+.lots-block p {
+  margin: 0;
+  padding: 0;
+}
+.auctions-block p {
+  margin: 0;
+  padding: 0;
+}
+#choose-user__select {
+  display: block;
+}
+#createRefCode__btn {
+  display: block;
+}
+input {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.btn {
+  margin-bottom: 10px;
+}
+.nft_image {
+  width: 10%;
+}
+.nft {
+  margin-bottom: 100px;
+}
